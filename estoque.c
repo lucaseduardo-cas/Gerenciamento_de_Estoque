@@ -12,9 +12,9 @@ struct cadastro {
 int main (void) {
 	setlocale(LC_ALL, "Portuguese");
 	
-	struct cadastro Cadastro;
-
-	int opcao;
+	struct cadastro produtos[100]; 
+    int cont_produtos = 0;  
+    int opcao;
 	
 	
 	do {
