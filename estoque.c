@@ -8,15 +8,14 @@ struct cadastro {
 	float preco;
 };
 
+
 int main (void) {
 	setlocale(LC_ALL, "Portuguese");
 	
 	struct cadastro Cadastro;
+
+	int opcao;
 	
-	char nome[20];
-	int opcao, qtd;
-	float preco;
-	int i;
 	
 	do {
 		printf("[1] Adicionar produto\n");
@@ -29,16 +28,21 @@ int main (void) {
 	
 		switch(opcao) {
 			case 1:
+				printf("ADICIONAR PRODUTO\n");
 				printf("Nome: ");
-				scanf("%s", &Cadastro.nome);
+				scanf("%s", Cadastro.nome);
 				printf("Quantidade: ");
 				scanf("%d", &Cadastro.qtd);
 				printf("Preço: R$ ");
-				scanf("%d", &Cadastro.preco);
+				scanf("%f", &Cadastro.preco);
 				printf("\n");
 				break;
 				
 			case 2: 
+				printf("CONSULTA DE ESTOQUE");
+				printf("Produto: %s\n", Cadastro.nome);
+                printf("Quantidade em estoque: %d\n", Cadastro.qtd);
+                printf("Preço unitário: R$ %.2f\n\n", Cadastro.preco);
 				break;
 				
 			case 3: 
