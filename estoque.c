@@ -25,6 +25,18 @@ void adicionarProduto(struct cadastro produtos[], int *cont_produtos) {
     }
 }
 
+void consultarEstoque(struct cadastro produtos[], int cont_produtos) {
+    if (cont_produtos == 0) {
+        printf("Nenhum produto cadastrado.\n\n");
+    } else {
+        printf("CONSULTA DE ESTOQUE\n");
+        for (int i = 0; i < cont_produtos; i++) {
+            printf("Produto %d: %s\n", i + 1, produtos[i].nome);
+            printf("Quantidade em estoque: %d\n", produtos[i].qtd);
+            printf("Preço unitário: R$ %.2f\n\n", produtos[i].preco);
+        }
+    }
+}
 
 int main (void) {
 	setlocale(LC_ALL, "Portuguese");
@@ -49,16 +61,7 @@ int main (void) {
 				break;
 				
 			case 2: 
-				if (cont_produtos == 0) {
-                    printf("Nenhum produto cadastrado.\n\n");
-                } else {
-                    printf("CONSULTA DE ESTOQUE\n");
-                    for (int i = 0; i < cont_produtos; i++) {
-                        printf("Produto %d: %s\n", i + 1, produtos[i].nome);
-                        printf("Quantidade em estoque: %d\n", produtos[i].qtd);
-                        printf("Preço unitário: R$ %.2f\n\n", produtos[i].preco);
-                    }
-                }
+				consultarEstoque(produtos, cont_produtos);
 				break;
 				
 			case 3: 
