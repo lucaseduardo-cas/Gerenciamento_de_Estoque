@@ -9,6 +9,23 @@ struct cadastro {
 };
 
 
+void adicionarProduto(struct cadastro produtos[], int *cont_produtos) {
+    if (*cont_produtos < 100) {
+        printf("ADICIONAR PRODUTO\n");
+        printf("Nome: ");
+        scanf("%s", produtos[*cont_produtos].nome);
+        printf("Quantidade: ");
+        scanf("%d", &produtos[*cont_produtos].qtd);
+        printf("Preço: R$ ");
+        scanf("%f", &produtos[*cont_produtos].preco);
+        (*cont_produtos)++;
+        printf("Produto adicionado com sucesso!\n\n");
+    } else {
+        printf("Capacidade máxima de produtos atingida!\n\n");
+    }
+}
+
+
 int main (void) {
 	setlocale(LC_ALL, "Portuguese");
 	
@@ -28,18 +45,7 @@ int main (void) {
 	
 		switch(opcao) {
 			case 1:
-				 printf("ADICIONAR PRODUTO\n");
-                    printf("Nome: ");
-                    scanf("%s", produtos[cont_produtos].nome);
-                    printf("Quantidade: ");
-                    scanf("%d", &produtos[cont_produtos].qtd);
-                    printf("Preço: R$ ");
-                    scanf("%f", &produtos[cont_produtos].preco);
-                    cont_produtos++;  
-                    printf("Produto adicionado com sucesso!\n\n");
-                } else {
-                    printf("Capacidade máxima de produtos atingida!\n\n");
-                }
+				adicionarProduto(produtos, &cont_produtos);
 				break;
 				
 			case 2: 
